@@ -4,10 +4,23 @@
     <output file="gfxdata/tiles.inc">
         <tiles var-name="tiles" />
         <maps pointers-size="8">
-            <map var-name="mapHigatanaStill" left="0" top="2" width="2" height="2" />
-            <map var-name="mapHigatanaA" left="2" top="2" width="2" height="2" />
-            <map var-name="mapHigatanaB" left="4" top="2" width="2" height="2" />
-            <map var-name="mapHigatanaC" left="6" top="2" width="2" height="2" />
+            <!-- BG Tiles -->
+            <map var-name="mapBGRedLeft" left="0" top="2" width="2" height="1" />
+            <map var-name="mapBGRedRight" left="0" top="3" width="2" height="1" />
+            <map var-name="mapBGRedLeftShort" left="2" top="2" width="1" height="2" />
+            <map var-name="mapBGRedRightShort" left="3" top="2" width="1" height="2" />
+
+            <map var-name="mapBGGreenLeft" left="4" top="2" width="2" height="1" />
+            <map var-name="mapBGGreenRight" left="4" top="3" width="2" height="1" />
+            <map var-name="mapBGGreenLeftShort" left="6" top="2" width="1" height="2" />
+            <map var-name="mapBGGreenRightShort" left="7" top="2" width="1" height="2" />
+
+            <!-- Higana Fighter Tiles -->
+
+            <map var-name="mapHigatanaStill" left="0" top="4" width="2" height="2" />
+            <map var-name="mapHigatanaA" left="2" top="4" width="2" height="2" />
+            <map var-name="mapHigatanaB" left="4" top="4" width="2" height="2" />
+            <map var-name="mapHigatanaC" left="6" top="4" width="2" height="2" />
         </maps>
     </output>
 </gfx-xform>

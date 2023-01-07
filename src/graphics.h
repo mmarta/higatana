@@ -7,6 +7,16 @@
 
 // The created tilemaps
 
+extern const char mapBGRedLeft[];
+extern const char mapBGRedRight[];
+extern const char mapBGRedLeftShort[];
+extern const char mapBGRedRightShort[];
+
+extern const char mapBGGreenLeft[];
+extern const char mapBGGreenRight[];
+extern const char mapBGGreenLeftShort[];
+extern const char mapBGGreenRightShort[];
+
 extern const char mapHigatanaStill[];
 extern const char mapHigatanaA[];
 extern const char mapHigatanaB[];

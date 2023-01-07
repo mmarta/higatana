@@ -6,4 +6,9 @@
 #include <avr/pgmspace.h>
 #include <uzebox.h>
 
+typedef enum {
+    red,
+    green
+} Color;
+
 #endif
