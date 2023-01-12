@@ -1,9 +1,11 @@
 #include "defines.h"
+#include "system.h"
 #include "graphics.h"
+#include "gamesys.h"
 #include "background.h"
+#include "player.h"
 
 int main() {
-    u8 i = 0, j = 0;
     SetTileTable(tiles);
 
     ClearVram();
@@ -18,32 +20,18 @@ int main() {
     PrintVerticalRAM(29, 12, "HI");
     PrintVerticalRAM(2, 5, "@2023 RED BALLTOP");
 
+    DrawMap(4, 22, mapBGSectorMap);
+
+    InitPlayers();
+
     while(1) {
         WaitVsync(1);
 
+        ReadInputs();
+
         BGUpdate();
         
-        switch(i) {
-            case 0:
-                DrawMap(4, 13, mapHigatanaA);
-                break;
-            case 3:
-            case 9:
-                DrawMap(4, 13, mapHigatanaB);
-                break;
-            case 6:
-                DrawMap(4, 13, mapHigatanaC);
-                break;
-        }
-        
-        i++;
-        if(i >= 12) i = 0;
-
-        j++;
-        if(j >= 60) {
-            j = 0;
-            BGRotate(bgColor == red ? green : red, 1);
-        }
+        PlayerUpdate(&players[0]);
     }
 
     return 0;
