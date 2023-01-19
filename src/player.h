@@ -6,14 +6,12 @@
 #include "graphics.h"
 #include "gamesys.h"
 #include "background.h"
+#include "bullet.h"
 
 #define PLAYER_COUNT 2
 
-#define PLAYER_X 4
-#define PLAYER_Y 13
-
 typedef struct {
-    u8 index, active, animTime, dieTime, rotating;
+    u8 index, active, animTime, dieTime, rotating, fireButton;
     u8 dirInput;
 } Player;
 

@@ -10,6 +10,7 @@
 #define BG_X_START 24
 #define BG_X_END 8
 
+void InitBG();
 void BGUpdate();
 void BGRotate(Color, u8);
 

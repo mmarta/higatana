@@ -4,6 +4,17 @@
 #include "defines.h"
 
 #define U32_MAX 0xffffffff
+#define SPRITE_Y_OFFSCREEN 224
+
+#define PLAYER_X 4
+#define PLAYER_Y 13
+#define PLAYER_W 2
+#define PLAYER_H 2
+
+#define PLAYER_BULLET_W 8
+#define PLAYER_BULLET_H 16
+
+#define PLAYER_BULLET_SPRITE_SIZE 1
 
 // The created tilemaps
 
@@ -49,15 +60,36 @@ extern const char mapBGVioletRightShort[];
 
 extern const char mapBGSectorMap[];
 
+extern const char mapBGSectorArrowUp[];
+extern const char mapBGSectorArrowDown[];
+extern const char mapBGSectorArrowRight[];
+extern const char mapBGSectorArrowLeft[];
+extern const char mapBGSectorArrowUpRight[];
+extern const char mapBGSectorArrowDownRight[];
+extern const char mapBGSectorArrowUpLeft[];
+extern const char mapBGSectorArrowDownLeft[];
+
 extern const char mapHigatanaStill[];
 extern const char mapHigatanaA[];
 extern const char mapHigatanaB[];
 extern const char mapHigatanaC[];
 
+// Sprite maps
+
+extern const char mapHigatanaBulletA[];
+extern const char mapHigatanaBulletBTop[];
+extern const char mapHigatanaBulletBBottom[];
+extern const char mapHigatanaBulletCTop[];
+extern const char mapHigatanaBulletCBottom[];
+
 // The bare tiles themselves
 
 extern const char tiles[];
 extern const char spriteTiles[];
+
+// Other variables
+
+extern u8 nextAvailableSpriteIndex;
 
 void PrintVerticalPROGMEM(u8, u8, const char *);
 void PrintVerticalRAM(u8, u8, const char *);

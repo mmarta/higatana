@@ -45,16 +45,16 @@
             <map var-name="mapBGVioletLeftShort" left="30" top="2" width="1" height="2" />
             <map var-name="mapBGVioletRightShort" left="31" top="2" width="1" height="2" />
 
-            <map var-name="mapBGSectorMap" left="0" top="4" width="4" height="2" />
+            <map var-name="mapBGSectorMap" left="0" top="4" width="2" height="2" />
 
-            <map var-name="mapBGSectorArrowUp" left="2" top="4" width="1" height="1" />
-            <map var-name="mapBGSectorArrowRight" left="3" top="4" width="1" height="1" />
-            <map var-name="mapBGSectorArrowDown" left="2" top="5" width="1" height="1" />
-            <map var-name="mapBGSectorArrowLeft" left="3" top="5" width="1" height="1" />
-            <map var-name="mapBGSectorArrowUpRight" left="4" top="4" width="1" height="1" />
-            <map var-name="mapBGSectorArrowDownRight" left="5" top="4" width="1" height="1" />
-            <map var-name="mapBGSectorArrowUpLeft" left="4" top="5" width="1" height="1" />
-            <map var-name="mapBGSectorArrowDownLeft" left="5" top="5" width="1" height="1" />
+            <map var-name="mapBGSectorArrowUp" left="2" top="4" width="1" height="2" />
+            <map var-name="mapBGSectorArrowDown" left="3" top="4" width="1" height="2" />
+            <map var-name="mapBGSectorArrowRight" left="4" top="4" width="2" height="1" />
+            <map var-name="mapBGSectorArrowLeft" left="4" top="5" width="2" height="1" />
+            <map var-name="mapBGSectorArrowUpRight" left="6" top="4" width="1" height="1" />
+            <map var-name="mapBGSectorArrowDownRight" left="7" top="4" width="1" height="1" />
+            <map var-name="mapBGSectorArrowUpLeft" left="6" top="5" width="1" height="1" />
+            <map var-name="mapBGSectorArrowDownLeft" left="7" top="5" width="1" height="1" />
 
             <!-- Higana Fighter Tiles -->
 

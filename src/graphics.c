@@ -1,6 +1,9 @@
 #include "graphics.h"
 
 #include "../gfxdata/tiles.inc"
+#include "../gfxdata/sprite-tiles.inc"
+
+u8 nextAvailableSpriteIndex = 0;
 
 void PrintVerticalPROGMEM(u8 x, u8 y, const char *str) {
     u8 i = 0, c = pgm_read_byte(&(str[i]));

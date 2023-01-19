@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<gfx-xform version="1">
+    <input file="png/gfx-sprite-tiles.png" type="png" tile-width="8" tile-height="8" />
+    <output file="gfxdata/sprite-tiles.inc">
+        <tiles var-name="spriteTiles" />
+        <maps pointers-size="8">
+            <!-- Higatana Bullet Maps -->
+            <map var-name="mapHigatanaBulletA" left="0" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaBulletBTop" left="1" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaBulletBBottom" left="2" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaBulletCTop" left="3" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaBulletCBottom" left="4" top="0" width="1" height="1" />
+
+        </maps>
+    </output>
+</gfx-xform>

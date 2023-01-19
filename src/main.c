@@ -3,10 +3,15 @@
 #include "graphics.h"
 #include "gamesys.h"
 #include "background.h"
+#include "bullet.h"
 #include "player.h"
 
 int main() {
+    u8 i;
+
     SetTileTable(tiles);
+    SetSpritesTileTable(spriteTiles);
+    SetSpriteVisibility(1);
 
     ClearVram();
 
@@ -20,8 +25,8 @@ int main() {
     PrintVerticalRAM(29, 12, "HI");
     PrintVerticalRAM(2, 5, "@2023 RED BALLTOP");
 
-    DrawMap(4, 22, mapBGSectorMap);
-
+    InitBG();
+    InitPlayerBullets();
     InitPlayers();
 
     while(1) {
@@ -32,6 +37,8 @@ int main() {
         BGUpdate();
         
         PlayerUpdate(&players[0]);
+        i = PLAYER_BULLET_COUNT;
+        while(i--) PlayerBulletUpdate(&playerBullets[i]);
     }
 
     return 0;

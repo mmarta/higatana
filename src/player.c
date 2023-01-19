@@ -10,6 +10,8 @@ void InitPlayers() {
 }
 
 void PlayerUpdate(Player *player) {
+    player->rotating = currentColor != targetColor;
+
     // Input
     if(inputs[player->index] & BTN_LEFT) {
         if(!player->dirInput) {
@@ -22,6 +24,13 @@ void PlayerUpdate(Player *player) {
             player->dirInput = 1;
         }
     } else if(player->dirInput) player->dirInput = 0;
+
+    if(inputs[player->index] & BTN_A) {
+        if(!player->fireButton) {
+            if(!player->rotating) PlayerBulletFire(currentColor);
+            player->fireButton = 1;
+        }
+    } else if(player->fireButton) player->fireButton = 0;
 
     switch(player->animTime) {
         case 0:

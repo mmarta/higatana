@@ -4,12 +4,20 @@ void DrawBG(Color);
 void DrawBGTransition();
 void DrawBGShort(Color, u8);
 void DrawBGLong(Color, u8);
+void DrawArrow(Color);
+void ClearArrow(Color);
 
 u8 bgRotateTime = 0, bgDirLeft = 0, bgStarted = 0;
+
+void InitBG() {
+    currentColor = red;
+    DrawMap(5, 22, mapBGSectorMap);
+}
 
 void BGUpdate() {
     if(bgRotateTime) {
         if(bgRotateTime == 24) {
+            ClearArrow(currentColor);
             currentColor = targetColor;
             bgRotateTime = 0;
             if(bgDirLeft) {
@@ -29,10 +37,11 @@ void BGUpdate() {
 
 void BGRotate(Color color, u8 dirLeft) {
     if(bgRotateTime) return;
-    
+
     bgRotateTime = 1;
     targetColor = color;
     bgDirLeft = dirLeft;
+    //ClearArrow(currentColor);
 }
 
 void DrawBG(Color color) {
@@ -73,6 +82,8 @@ void DrawBG(Color color) {
             mapPtrRight = &mapBGRedRight;
     }
 
+    DrawArrow(color);
+
     while(i++ < 8) {
         x -= 2;
         DrawMap(x, j, mapPtrLeft);
@@ -82,6 +93,61 @@ void DrawBG(Color color) {
     }
 }
 
+void DrawArrow(Color color) {
+    switch(color) {
+        case blue:
+            DrawMap(4, 21, mapBGSectorArrowUpRight);
+            break;
+        case green:
+            DrawMap(5, 21, mapBGSectorArrowRight);
+            break;
+        case yellow:
+            DrawMap(7, 21, mapBGSectorArrowDownRight);
+            break;
+        case lavendar:
+            DrawMap(7, 22, mapBGSectorArrowDown);
+            break;
+        case orange:
+            DrawMap(7, 24, mapBGSectorArrowDownLeft);
+            break;
+        case pink:
+            DrawMap(5, 24, mapBGSectorArrowLeft);
+            break;
+        case violet:
+            DrawMap(4, 24, mapBGSectorArrowUpLeft);
+            break;
+        default:
+            DrawMap(4, 22, mapBGSectorArrowUp);
+    }
+}
+
+void ClearArrow(Color color) {
+    switch(color) {
+        case blue:
+            Fill(4, 21, 1, 1, 0);
+            break;
+        case green:
+            Fill(5, 21, 2, 1, 0);
+            break;
+        case yellow:
+            Fill(7, 21, 1, 1, 0);
+            break;
+        case lavendar:
+            Fill(7, 22, 1, 2, 0);
+            break;
+        case orange:
+            Fill(7, 24, 1, 1, 0);
+            break;
+        case pink:
+            Fill(5, 24, 2, 1, 0);
+            break;
+        case violet:
+            Fill(4, 24, 1, 1, 0);
+            break;
+        default:
+            Fill(4, 22, 1, 2, 0);
+    }
+}
 
 void DrawBGTransition() {
     switch(bgRotateTime) {
