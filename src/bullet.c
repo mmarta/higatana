@@ -37,7 +37,16 @@ void PlayerBulletUpdate(PlayerBullet *bullet) {
     u8 remap = 0;
     if(!bullet->active) return;
 
-    bullet->x += 4;
+    switch(bullet->distance) {
+        case 0:
+            bullet->x += 4;
+            break;
+        case 1:
+            bullet->x += 3;
+            break;
+        default:
+            bullet->x += 2;
+    }
 
     if(
         bullet->spriteActive
@@ -54,13 +63,13 @@ void PlayerBulletUpdate(PlayerBullet *bullet) {
         && currentColor == bullet->sector
     ) bullet->spriteActive = 1;
 
-    if(bullet->x >= 80 && bullet->distance == 0) {
+    if(bullet->x >= 120 && bullet->distance == 0) {
         bullet->distance = 1;
         remap = 1;
-    } else if(bullet->x >= 140 && bullet->distance == 1) {
+    } else if(bullet->x >= 170 && bullet->distance == 1) {
         bullet->distance = 2;
         remap = 1;
-    } else if(bullet->x >= 180) {
+    } else if(bullet->x >= 188) {
         PlayerBulletDeactivate(bullet);
         return;
     }

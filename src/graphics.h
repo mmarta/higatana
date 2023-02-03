@@ -74,6 +74,14 @@ extern const char mapHigatanaA[];
 extern const char mapHigatanaB[];
 extern const char mapHigatanaC[];
 
+extern const char mapInvaderANearA[];
+extern const char mapInvaderANearB[];
+extern const char mapInvaderANearC[];
+extern const char mapInvaderAMiddleA[];
+extern const char mapInvaderAMiddleB[];
+extern const char mapInvaderAFarA[];
+extern const char mapInvaderAFarB[];
+
 // Sprite maps
 
 extern const char mapHigatanaBulletA[];

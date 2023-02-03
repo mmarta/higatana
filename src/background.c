@@ -50,36 +50,36 @@ void DrawBG(Color color) {
 
     switch(color) {
         case blue:
-            mapPtrLeft = &mapBGBlueLeft;
-            mapPtrRight = &mapBGBlueRight;
+            mapPtrLeft = mapBGBlueLeft;
+            mapPtrRight = mapBGBlueRight;
             break;
         case green:
-            mapPtrLeft = &mapBGGreenLeft;
-            mapPtrRight = &mapBGGreenRight;
+            mapPtrLeft = mapBGGreenLeft;
+            mapPtrRight = mapBGGreenRight;
             break;
         case yellow:
-            mapPtrLeft = &mapBGYellowLeft;
-            mapPtrRight = &mapBGYellowRight;
+            mapPtrLeft = mapBGYellowLeft;
+            mapPtrRight = mapBGYellowRight;
             break;
         case lavendar:
-            mapPtrLeft = &mapBGLavendarLeft;
-            mapPtrRight = &mapBGLavendarRight;
+            mapPtrLeft = mapBGLavendarLeft;
+            mapPtrRight = mapBGLavendarRight;
             break;
         case orange:
-            mapPtrLeft = &mapBGOrangeLeft;
-            mapPtrRight = &mapBGOrangeRight;
+            mapPtrLeft = mapBGOrangeLeft;
+            mapPtrRight = mapBGOrangeRight;
             break;
         case pink:
-            mapPtrLeft = &mapBGPinkLeft;
-            mapPtrRight = &mapBGPinkRight;
+            mapPtrLeft = mapBGPinkLeft;
+            mapPtrRight = mapBGPinkRight;
             break;
         case violet:
-            mapPtrLeft = &mapBGVioletLeft;
-            mapPtrRight = &mapBGVioletRight;
+            mapPtrLeft = mapBGVioletLeft;
+            mapPtrRight = mapBGVioletRight;
             break;
         default:
-            mapPtrLeft = &mapBGRedLeft;
-            mapPtrRight = &mapBGRedRight;
+            mapPtrLeft = mapBGRedLeft;
+            mapPtrRight = mapBGRedRight;
     }
 
     DrawArrow(color);
@@ -184,28 +184,28 @@ void DrawBGShort(Color color, u8 dirLeft) {
 
     switch(color) {
         case blue:
-            mapPtr = dirLeft ? &mapBGBlueLeftShort : &mapBGBlueRightShort;
+            mapPtr = dirLeft ? mapBGBlueLeftShort : mapBGBlueRightShort;
             break;
         case green:
-            mapPtr = dirLeft ? &mapBGGreenLeftShort : &mapBGGreenRightShort;
+            mapPtr = dirLeft ? mapBGGreenLeftShort : mapBGGreenRightShort;
             break;
         case yellow:
-            mapPtr = dirLeft ? &mapBGYellowLeftShort : &mapBGYellowRightShort;
+            mapPtr = dirLeft ? mapBGYellowLeftShort : mapBGYellowRightShort;
             break;
         case lavendar:
-            mapPtr = dirLeft ? &mapBGLavendarLeftShort : &mapBGLavendarRightShort;
+            mapPtr = dirLeft ? mapBGLavendarLeftShort : mapBGLavendarRightShort;
             break;
         case orange:
-            mapPtr = dirLeft ? &mapBGOrangeLeftShort : &mapBGOrangeRightShort;
+            mapPtr = dirLeft ? mapBGOrangeLeftShort : mapBGOrangeRightShort;
             break;
         case pink:
-            mapPtr = dirLeft ? &mapBGPinkLeftShort : &mapBGPinkRightShort;
+            mapPtr = dirLeft ? mapBGPinkLeftShort : mapBGPinkRightShort;
             break;
         case violet:
-            mapPtr = dirLeft ? &mapBGVioletLeftShort : &mapBGVioletRightShort;
+            mapPtr = dirLeft ? mapBGVioletLeftShort : mapBGVioletRightShort;
             break;
         default:
-            mapPtr = dirLeft ? &mapBGRedLeftShort : &mapBGRedRightShort;
+            mapPtr = dirLeft ? mapBGRedLeftShort : mapBGRedRightShort;
     }
 
     if(dirLeft) {
@@ -232,28 +232,28 @@ void DrawBGLong(Color color, u8 dirLeft) {
 
     switch(color) {
         case blue:
-            mapPtr = dirLeft ? &mapBGBlueLeft : &mapBGBlueRight;
+            mapPtr = dirLeft ? mapBGBlueLeft : mapBGBlueRight;
             break;
         case green:
-            mapPtr = dirLeft ? &mapBGGreenLeft : &mapBGGreenRight;
+            mapPtr = dirLeft ? mapBGGreenLeft : mapBGGreenRight;
             break;
         case yellow:
-            mapPtr = dirLeft ? &mapBGYellowLeft : &mapBGYellowRight;
+            mapPtr = dirLeft ? mapBGYellowLeft : mapBGYellowRight;
             break;
         case lavendar:
-            mapPtr = dirLeft ? &mapBGLavendarLeft : &mapBGLavendarRight;
+            mapPtr = dirLeft ? mapBGLavendarLeft : mapBGLavendarRight;
             break;
         case orange:
-            mapPtr = dirLeft ? &mapBGOrangeLeft : &mapBGOrangeRight;
+            mapPtr = dirLeft ? mapBGOrangeLeft : mapBGOrangeRight;
             break;
         case pink:
-            mapPtr = dirLeft ? &mapBGPinkLeft : &mapBGPinkRight;
+            mapPtr = dirLeft ? mapBGPinkLeft : mapBGPinkRight;
             break;
         case violet:
-            mapPtr = dirLeft ? &mapBGVioletLeft : &mapBGVioletRight;
+            mapPtr = dirLeft ? mapBGVioletLeft : mapBGVioletRight;
             break;
         default:
-            mapPtr = dirLeft ? &mapBGRedLeft : &mapBGRedRight;
+            mapPtr = dirLeft ? mapBGRedLeft : mapBGRedRight;
     }
 
     while(i++ < 8) {
