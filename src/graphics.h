@@ -6,7 +6,7 @@
 #define U32_MAX 0xffffffff
 #define SPRITE_Y_OFFSCREEN 224
 
-#define PLAYER_X 4
+#define PLAYER_X 27
 #define PLAYER_Y 13
 #define PLAYER_W 2
 #define PLAYER_H 2

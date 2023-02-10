@@ -5,56 +5,56 @@
         <tiles var-name="tiles" />
         <maps pointers-size="8">
             <!-- BG Tiles -->
-            <map var-name="mapBGRedLeft" left="0" top="2" width="2" height="1" />
-            <map var-name="mapBGRedRight" left="0" top="3" width="2" height="1" />
-            <map var-name="mapBGRedLeftShort" left="2" top="2" width="1" height="2" />
-            <map var-name="mapBGRedRightShort" left="3" top="2" width="1" height="2" />
+            <map var-name="mapBGRedRight" left="0" top="2" width="2" height="1" />
+            <map var-name="mapBGRedLeft" left="0" top="3" width="2" height="1" />
+            <map var-name="mapBGRedRightShort" left="2" top="2" width="1" height="2" />
+            <map var-name="mapBGRedLeftShort" left="3" top="2" width="1" height="2" />
 
-            <map var-name="mapBGBlueLeft" left="4" top="2" width="2" height="1" />
-            <map var-name="mapBGBlueRight" left="4" top="3" width="2" height="1" />
-            <map var-name="mapBGBlueLeftShort" left="6" top="2" width="1" height="2" />
-            <map var-name="mapBGBlueRightShort" left="7" top="2" width="1" height="2" />
+            <map var-name="mapBGBlueRight" left="4" top="2" width="2" height="1" />
+            <map var-name="mapBGBlueLeft" left="4" top="3" width="2" height="1" />
+            <map var-name="mapBGBlueRightShort" left="6" top="2" width="1" height="2" />
+            <map var-name="mapBGBlueLeftShort" left="7" top="2" width="1" height="2" />
 
-            <map var-name="mapBGGreenLeft" left="8" top="2" width="2" height="1" />
-            <map var-name="mapBGGreenRight" left="8" top="3" width="2" height="1" />
-            <map var-name="mapBGGreenLeftShort" left="10" top="2" width="1" height="2" />
-            <map var-name="mapBGGreenRightShort" left="11" top="2" width="1" height="2" />
+            <map var-name="mapBGGreenRight" left="8" top="2" width="2" height="1" />
+            <map var-name="mapBGGreenLeft" left="8" top="3" width="2" height="1" />
+            <map var-name="mapBGGreenRightShort" left="10" top="2" width="1" height="2" />
+            <map var-name="mapBGGreenLeftShort" left="11" top="2" width="1" height="2" />
 
-            <map var-name="mapBGYellowLeft" left="12" top="2" width="2" height="1" />
-            <map var-name="mapBGYellowRight" left="12" top="3" width="2" height="1" />
-            <map var-name="mapBGYellowLeftShort" left="14" top="2" width="1" height="2" />
-            <map var-name="mapBGYellowRightShort" left="15" top="2" width="1" height="2" />
+            <map var-name="mapBGYellowRight" left="12" top="2" width="2" height="1" />
+            <map var-name="mapBGYellowLeft" left="12" top="3" width="2" height="1" />
+            <map var-name="mapBGYellowRightShort" left="14" top="2" width="1" height="2" />
+            <map var-name="mapBGYellowLeftShort" left="15" top="2" width="1" height="2" />
 
-            <map var-name="mapBGLavendarLeft" left="16" top="2" width="2" height="1" />
-            <map var-name="mapBGLavendarRight" left="16" top="3" width="2" height="1" />
-            <map var-name="mapBGLavendarLeftShort" left="18" top="2" width="1" height="2" />
-            <map var-name="mapBGLavendarRightShort" left="19" top="2" width="1" height="2" />
+            <map var-name="mapBGLavendarRight" left="16" top="2" width="2" height="1" />
+            <map var-name="mapBGLavendarLeft" left="16" top="3" width="2" height="1" />
+            <map var-name="mapBGLavendarRightShort" left="18" top="2" width="1" height="2" />
+            <map var-name="mapBGLavendarLeftShort" left="19" top="2" width="1" height="2" />
 
-            <map var-name="mapBGOrangeLeft" left="20" top="2" width="2" height="1" />
-            <map var-name="mapBGOrangeRight" left="20" top="3" width="2" height="1" />
-            <map var-name="mapBGOrangeLeftShort" left="22" top="2" width="1" height="2" />
-            <map var-name="mapBGOrangeRightShort" left="23" top="2" width="1" height="2" />
+            <map var-name="mapBGOrangeRight" left="20" top="2" width="2" height="1" />
+            <map var-name="mapBGOrangeLeft" left="20" top="3" width="2" height="1" />
+            <map var-name="mapBGOrangeRightShort" left="22" top="2" width="1" height="2" />
+            <map var-name="mapBGOrangeLeftShort" left="23" top="2" width="1" height="2" />
 
-            <map var-name="mapBGPinkLeft" left="24" top="2" width="2" height="1" />
-            <map var-name="mapBGPinkRight" left="24" top="3" width="2" height="1" />
-            <map var-name="mapBGPinkLeftShort" left="26" top="2" width="1" height="2" />
-            <map var-name="mapBGPinkRightShort" left="27" top="2" width="1" height="2" />
+            <map var-name="mapBGPinkRight" left="24" top="2" width="2" height="1" />
+            <map var-name="mapBGPinkLeft" left="24" top="3" width="2" height="1" />
+            <map var-name="mapBGPinkRightShort" left="26" top="2" width="1" height="2" />
+            <map var-name="mapBGPinkLeftShort" left="27" top="2" width="1" height="2" />
 
-            <map var-name="mapBGVioletLeft" left="28" top="2" width="2" height="1" />
-            <map var-name="mapBGVioletRight" left="28" top="3" width="2" height="1" />
-            <map var-name="mapBGVioletLeftShort" left="30" top="2" width="1" height="2" />
-            <map var-name="mapBGVioletRightShort" left="31" top="2" width="1" height="2" />
+            <map var-name="mapBGVioletRight" left="28" top="2" width="2" height="1" />
+            <map var-name="mapBGVioletLeft" left="28" top="3" width="2" height="1" />
+            <map var-name="mapBGVioletRightShort" left="30" top="2" width="1" height="2" />
+            <map var-name="mapBGVioletLeftShort" left="31" top="2" width="1" height="2" />
 
             <map var-name="mapBGSectorMap" left="0" top="4" width="2" height="2" />
 
-            <map var-name="mapBGSectorArrowUp" left="2" top="4" width="1" height="2" />
-            <map var-name="mapBGSectorArrowDown" left="3" top="4" width="1" height="2" />
-            <map var-name="mapBGSectorArrowRight" left="4" top="4" width="2" height="1" />
-            <map var-name="mapBGSectorArrowLeft" left="4" top="5" width="2" height="1" />
-            <map var-name="mapBGSectorArrowUpRight" left="6" top="4" width="1" height="1" />
-            <map var-name="mapBGSectorArrowDownRight" left="7" top="4" width="1" height="1" />
-            <map var-name="mapBGSectorArrowUpLeft" left="6" top="5" width="1" height="1" />
-            <map var-name="mapBGSectorArrowDownLeft" left="7" top="5" width="1" height="1" />
+            <map var-name="mapBGSectorArrowDown" left="2" top="4" width="1" height="2" />
+            <map var-name="mapBGSectorArrowUp" left="3" top="4" width="1" height="2" />
+            <map var-name="mapBGSectorArrowLeft" left="4" top="4" width="2" height="1" />
+            <map var-name="mapBGSectorArrowRight" left="4" top="5" width="2" height="1" />
+            <map var-name="mapBGSectorArrowDownLeft" left="6" top="4" width="1" height="1" />
+            <map var-name="mapBGSectorArrowDownRight" left="6" top="5" width="1" height="1" />
+            <map var-name="mapBGSectorArrowUpLeft" left="7" top="4" width="1" height="1" />
+            <map var-name="mapBGSectorArrowUpRight" left="7" top="5" width="1" height="1" />
 
             <!-- Higana Fighter Tiles -->
 

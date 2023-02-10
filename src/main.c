@@ -15,15 +15,15 @@ int main() {
 
     ClearVram();
 
-    PrintU16Vertical(28, 6, 40000, 50000, 1);
-    PrintVerticalRAM(29, 2, "1UP");
+    PrintU16Vertical(3, 21, 40000, 50000, 1);
+    PrintVerticalRAM(2, 25, "1UP");
 
-    PrintU16Vertical(28, 27, 20000, 50000, 1);
-    PrintVerticalRAM(29, 23, "2UP");
+    PrintU16Vertical(3, 0, 20000, 50000, 1);
+    PrintVerticalRAM(2, 4, "2UP");
 
-    PrintU16Vertical(28, 16, 50000, 50000, 1);
-    PrintVerticalRAM(29, 12, "HI");
-    PrintVerticalRAM(2, 5, "@2023 RED BALLTOP");
+    PrintU16Vertical(3, 10, 50000, 50000, 1);
+    PrintVerticalRAM(2, 15, "HI");
+    PrintVerticalRAM(29, 22, "@2023 RED BALLTOP");
 
     InitBG();
     InitPlayerBullets();

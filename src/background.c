@@ -2,7 +2,9 @@
 
 void DrawBG(Color);
 void DrawBGTransition();
+void ClearBGShort(u8);
 void DrawBGShort(Color, u8);
+void ClearBGLong(u8);
 void DrawBGLong(Color, u8);
 void DrawArrow(Color);
 void ClearArrow(Color);
@@ -11,7 +13,7 @@ u8 bgRotateTime = 0, bgDirLeft = 0, bgStarted = 0;
 
 void InitBG() {
     currentColor = red;
-    DrawMap(5, 22, mapBGSectorMap);
+    DrawMap(5, 13, mapBGSectorMap);
 }
 
 void BGUpdate() {
@@ -20,13 +22,7 @@ void BGUpdate() {
             ClearArrow(currentColor);
             currentColor = targetColor;
             bgRotateTime = 0;
-            if(bgDirLeft) {
-                Fill(BG_X_START - 2, 0, 3, 6, 0);
-                Fill(BG_X_END, BG_RIGHT_Y_START, 16, 8, 0);
-            } else {
-                Fill(BG_X_START - 2, 22, 3, 6, 0);
-                Fill(BG_X_END, BG_LEFT_Y_START - 7, 16, 8, 0);
-            }
+            ClearBGShort(bgDirLeft);
             DrawBG(currentColor);
         } else {
             DrawBGTransition();
@@ -45,141 +41,96 @@ void BGRotate(Color color, u8 dirLeft) {
 }
 
 void DrawBG(Color color) {
-    u8 i = 0, j = BG_LEFT_Y_START, k = BG_RIGHT_Y_START, x = BG_X_START;
-    const char *mapPtrLeft, *mapPtrRight;
-
-    switch(color) {
-        case blue:
-            mapPtrLeft = mapBGBlueLeft;
-            mapPtrRight = mapBGBlueRight;
-            break;
-        case green:
-            mapPtrLeft = mapBGGreenLeft;
-            mapPtrRight = mapBGGreenRight;
-            break;
-        case yellow:
-            mapPtrLeft = mapBGYellowLeft;
-            mapPtrRight = mapBGYellowRight;
-            break;
-        case lavendar:
-            mapPtrLeft = mapBGLavendarLeft;
-            mapPtrRight = mapBGLavendarRight;
-            break;
-        case orange:
-            mapPtrLeft = mapBGOrangeLeft;
-            mapPtrRight = mapBGOrangeRight;
-            break;
-        case pink:
-            mapPtrLeft = mapBGPinkLeft;
-            mapPtrRight = mapBGPinkRight;
-            break;
-        case violet:
-            mapPtrLeft = mapBGVioletLeft;
-            mapPtrRight = mapBGVioletRight;
-            break;
-        default:
-            mapPtrLeft = mapBGRedLeft;
-            mapPtrRight = mapBGRedRight;
-    }
-
     DrawArrow(color);
 
-    while(i++ < 8) {
-        x -= 2;
-        DrawMap(x, j, mapPtrLeft);
-        DrawMap(x, k, mapPtrRight);
-        j--;
-        k++;
-    }
+    DrawBGLong(color, 0);
+    DrawBGLong(color, 1);
 }
 
 void DrawArrow(Color color) {
     switch(color) {
         case blue:
-            DrawMap(4, 21, mapBGSectorArrowUpRight);
+            DrawMap(7, 15, mapBGSectorArrowUpRight);
             break;
         case green:
-            DrawMap(5, 21, mapBGSectorArrowRight);
+            DrawMap(5, 15, mapBGSectorArrowRight);
             break;
         case yellow:
-            DrawMap(7, 21, mapBGSectorArrowDownRight);
+            DrawMap(4, 15, mapBGSectorArrowDownRight);
             break;
         case lavendar:
-            DrawMap(7, 22, mapBGSectorArrowDown);
+            DrawMap(4, 13, mapBGSectorArrowDown);
             break;
         case orange:
-            DrawMap(7, 24, mapBGSectorArrowDownLeft);
+            DrawMap(4, 12, mapBGSectorArrowDownLeft);
             break;
         case pink:
-            DrawMap(5, 24, mapBGSectorArrowLeft);
+            DrawMap(5, 12, mapBGSectorArrowLeft);
             break;
         case violet:
-            DrawMap(4, 24, mapBGSectorArrowUpLeft);
+            DrawMap(7, 12, mapBGSectorArrowUpLeft);
             break;
         default:
-            DrawMap(4, 22, mapBGSectorArrowUp);
+            DrawMap(7, 13, mapBGSectorArrowUp);
     }
 }
 
 void ClearArrow(Color color) {
     switch(color) {
         case blue:
-            Fill(4, 21, 1, 1, 0);
+            Fill(7, 15, 1, 1, 0);
             break;
         case green:
-            Fill(5, 21, 2, 1, 0);
+            Fill(5, 15, 2, 1, 0);
             break;
         case yellow:
-            Fill(7, 21, 1, 1, 0);
+            Fill(4, 15, 1, 1, 0);
             break;
         case lavendar:
-            Fill(7, 22, 1, 2, 0);
+            Fill(4, 13, 1, 2, 0);
             break;
         case orange:
-            Fill(7, 24, 1, 1, 0);
+            Fill(4, 12, 1, 1, 0);
             break;
         case pink:
-            Fill(5, 24, 2, 1, 0);
+            Fill(5, 12, 2, 1, 0);
             break;
         case violet:
-            Fill(4, 24, 1, 1, 0);
+            Fill(7, 12, 1, 1, 0);
             break;
         default:
-            Fill(4, 22, 1, 2, 0);
+            Fill(7, 13, 1, 2, 0);
     }
 }
 
 void DrawBGTransition() {
     switch(bgRotateTime) {
         case 4:
-            if(bgDirLeft) Fill(BG_X_END, BG_LEFT_Y_START - 7, 16, 8, 0);
-            else Fill(BG_X_END, BG_RIGHT_Y_START, 16, 8, 0);
-            
+            ClearBGLong(bgDirLeft);
             DrawBGShort(currentColor, !bgDirLeft);
             break;
         case 8:
-            if(bgDirLeft) Fill(BG_X_END, BG_RIGHT_Y_START, 16, 8, 0);
-            else Fill(BG_X_END, BG_LEFT_Y_START - 7, 16, 8, 0);
+            ClearBGLong(!bgDirLeft);
             break;
         case 12:
-            if(bgDirLeft) Fill(BG_X_START - 2, 22, 3, 6, 0);
-            else Fill(BG_X_START - 2, 0, 3, 6, 0);
+            ClearBGShort(!bgDirLeft);
             break;
         case 16:
             DrawBGShort(targetColor, bgDirLeft);
             break;
         case 20:
-            if(bgDirLeft) Fill(BG_X_START - 2, 22, 3, 6, 0);
-            else Fill(BG_X_START - 2, 0, 3, 6, 0);
-
             DrawBGLong(targetColor, bgDirLeft);
             break;
     }
 }
 
+void ClearBGShort(u8 dirLeft) {
+    if(dirLeft) Fill(BG_X_START - 2, 20, 4, 8, 0);
+    else Fill(BG_X_START - 2, 0, 4, 8, 0);
+}
 
 void DrawBGShort(Color color, u8 dirLeft) {
-    u8 x = BG_X_START, y;
+    u8 x = BG_X_START - 2, y;
     const char *mapPtr;
 
     switch(color) {
@@ -208,22 +159,27 @@ void DrawBGShort(Color color, u8 dirLeft) {
             mapPtr = dirLeft ? mapBGRedLeftShort : mapBGRedRightShort;
     }
 
-    if(dirLeft) {
-        y = 6;
+    if(!dirLeft) {
+        y = 8;
         
         while(y) {
             y -= 2;
             DrawMap(x, y, mapPtr);
-            x--;
+            x++;
         }
     } else {
-        y = 22;
+        y = 20;
         while(y < 28) {
             DrawMap(x, y, mapPtr);
-            x--;
+            x++;
             y += 2;
         }
     }
+}
+
+void ClearBGLong(u8 dirLeft) {
+    if(dirLeft) Fill(BG_X_START, BG_LEFT_Y_START, 16, 8, 0);
+    else Fill(BG_X_START, BG_RIGHT_Y_START - 7, 16, 8, 0);
 }
 
 void DrawBGLong(Color color, u8 dirLeft) {
@@ -256,14 +212,14 @@ void DrawBGLong(Color color, u8 dirLeft) {
             mapPtr = dirLeft ? mapBGRedLeft : mapBGRedRight;
     }
 
-    while(i++ < 8) {
-        x -= 2;
+    while(x <= BG_X_END) {
         if(dirLeft) {
             DrawMap(x, j, mapPtr);
-            j--;
+            j++;
         } else {
             DrawMap(x, j, mapPtr);
-            j++;
+            j--;
         }
+        x += 2;
     }
 }

@@ -9,14 +9,14 @@ void PrintVerticalPROGMEM(u8 x, u8 y, const char *str) {
     u8 i = 0, c = pgm_read_byte(&(str[i]));
     while(c) {
         SetTile(x, y++, c - 32);
-        c = pgm_read_byte(&(str[++i]));
+        c = pgm_read_byte(&(str[--i]));
     }
 }
 
 void PrintVerticalRAM(u8 x, u8 y, const char *str) {
     u8 i = 0;
     while(str[i]) {
-        SetTile(x, y++, str[i] - 32);
+        SetTile(x, y--, str[i] - 32);
         i++;
     }
 }
@@ -26,7 +26,7 @@ void PrintU8Vertical(u8 x, u8 y, u8 val) {
 
     do {
         modVal = val % 10;
-        SetTile(x, y--, !first && modVal == 0 && val == 0 ? 0 : modVal + 16);
+        SetTile(x, y++, !first && modVal == 0 && val == 0 ? 0 : modVal + 16);
         val /= 10;
         max /= 10;
         first = 0;
@@ -37,13 +37,13 @@ void PrintU16Vertical(u8 x, u8 y, u16 val, u16 maxVal, u8 padHundred) {
     u8 first = 1, modVal;
 
     if(padHundred && val) {
-        SetTile(x, y--, 16);
-        SetTile(x, y--, 16);
+        SetTile(x, y++, 16);
+        SetTile(x, y++, 16);
     }
 
     do {
         modVal = val % 10;
-        SetTile(x, y--, !first && modVal == 0 && val == 0 ? 0 : modVal + 16);
+        SetTile(x, y++, !first && modVal == 0 && val == 0 ? 0 : modVal + 16);
         val /= 10;
         maxVal /= 10;
         first = 0;
@@ -55,7 +55,7 @@ void PrintU32Vertical(u8 x, u8 y, u32 val, u32 maxVal) {
 
     do {
         modVal = val % 10;
-        SetTile(x, y--, !first && modVal == 0 && val == 0 ? 0 : modVal + 16);
+        SetTile(x, y++, !first && modVal == 0 && val == 0 ? 0 : modVal + 16);
         val /= 10;
         maxVal /= 10;
         first = 0;

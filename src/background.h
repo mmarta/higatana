@@ -5,10 +5,10 @@
 #include "graphics.h"
 #include "gamesys.h"
 
-#define BG_LEFT_Y_START 11
-#define BG_RIGHT_Y_START 16
-#define BG_X_START 24
-#define BG_X_END 8
+#define BG_LEFT_Y_START 16
+#define BG_RIGHT_Y_START 11
+#define BG_X_START 12
+#define BG_X_END 23
 
 void InitBG();
 void BGUpdate();

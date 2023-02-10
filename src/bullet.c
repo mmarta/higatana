@@ -21,7 +21,7 @@ void PlayerBulletFire(Color sector) {
     while(i--) {
         if(!playerBullets[i].active) {
             playerBullets[i].y = PLAYER_Y << 3;
-            playerBullets[i].x = (PLAYER_X + 1) << 3;
+            playerBullets[i].x = PLAYER_X << 3;
             playerBullets[i].sector = sector;
             playerBullets[i].distance = 0;
             playerBullets[i].active = 1;
@@ -39,13 +39,13 @@ void PlayerBulletUpdate(PlayerBullet *bullet) {
 
     switch(bullet->distance) {
         case 0:
-            bullet->x += 4;
+            bullet->x -= 4;
             break;
         case 1:
-            bullet->x += 3;
+            bullet->x -= 3;
             break;
         default:
-            bullet->x += 2;
+            bullet->x -= 2;
     }
 
     if(
@@ -63,13 +63,13 @@ void PlayerBulletUpdate(PlayerBullet *bullet) {
         && currentColor == bullet->sector
     ) bullet->spriteActive = 1;
 
-    if(bullet->x >= 120 && bullet->distance == 0) {
+    if(bullet->x < 180 && bullet->distance == 0) {
         bullet->distance = 1;
         remap = 1;
-    } else if(bullet->x >= 170 && bullet->distance == 1) {
+    } else if(bullet->x < 130 && bullet->distance == 1) {
         bullet->distance = 2;
         remap = 1;
-    } else if(bullet->x >= 188) {
+    } else if(bullet->x < 100) {
         PlayerBulletDeactivate(bullet);
         return;
     }
