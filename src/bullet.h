@@ -5,17 +5,13 @@
 #include "graphics.h"
 #include "gamesys.h"
 
-#define PLAYER_BULLET_COUNT 3
-
 typedef struct {
-    u8 x, y, active, distance, spriteIndex, spriteActive;
-    Color sector;
+    u8 active, distance, spriteIndex, playerIndex;
+    struct SpriteStruct *sprite;
 } PlayerBullet;
 
-extern PlayerBullet playerBullets[];
-
-void InitPlayerBullets();
-void PlayerBulletFire(Color);
+void InitPlayerBullet(PlayerBullet *, u8);
+void PlayerBulletFire(PlayerBullet *, u8, u8);
 void PlayerBulletUpdate(PlayerBullet *);
 void PlayerBulletDeactivate(PlayerBullet *);
 

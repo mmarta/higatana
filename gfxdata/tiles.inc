@@ -251,30 +251,6 @@ const char mapBGSectorArrowUpRight[] PROGMEM ={
 1,1
 ,0x8f};
 
-#define MAPHIGATANASTILL_WIDTH 2
-#define MAPHIGATANASTILL_HEIGHT 2
-const char mapHigatanaStill[] PROGMEM ={
-2,2
-,0x90,0x0,0x97,0x0};
-
-#define MAPHIGATANAA_WIDTH 2
-#define MAPHIGATANAA_HEIGHT 2
-const char mapHigatanaA[] PROGMEM ={
-2,2
-,0x91,0x92,0x98,0x99};
-
-#define MAPHIGATANAB_WIDTH 2
-#define MAPHIGATANAB_HEIGHT 2
-const char mapHigatanaB[] PROGMEM ={
-2,2
-,0x93,0x94,0x9a,0x9b};
-
-#define MAPHIGATANAC_WIDTH 2
-#define MAPHIGATANAC_HEIGHT 2
-const char mapHigatanaC[] PROGMEM ={
-2,2
-,0x95,0x96,0x9c,0x9d};
-
 #define MAPINVADERANEARA_WIDTH 2
 #define MAPINVADERANEARA_HEIGHT 2
 const char mapInvaderANearA[] PROGMEM ={

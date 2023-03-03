@@ -56,13 +56,6 @@
             <map var-name="mapBGSectorArrowUpLeft" left="7" top="4" width="1" height="1" />
             <map var-name="mapBGSectorArrowUpRight" left="7" top="5" width="1" height="1" />
 
-            <!-- Higana Fighter Tiles -->
-
-            <map var-name="mapHigatanaStill" left="0" top="6" width="2" height="2" />
-            <map var-name="mapHigatanaA" left="2" top="6" width="2" height="2" />
-            <map var-name="mapHigatanaB" left="4" top="6" width="2" height="2" />
-            <map var-name="mapHigatanaC" left="6" top="6" width="2" height="2" />
-
             <!-- Invader Tiles -->
 
             <map var-name="mapInvaderANearA" left="0" top="8" width="2" height="2" />

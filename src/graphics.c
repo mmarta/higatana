@@ -3,7 +3,12 @@
 #include "../gfxdata/tiles.inc"
 #include "../gfxdata/sprite-tiles.inc"
 
-u8 nextAvailableSpriteIndex = 0;
+u8 nextAvailableSpriteIndex = 1;
+
+void AssignNextSprite(u8 *assignee, u8 size) {
+    *assignee = nextAvailableSpriteIndex;
+    nextAvailableSpriteIndex += size;
+}
 
 void PrintVerticalPROGMEM(u8 x, u8 y, const char *str) {
     u8 i = 0, c = pgm_read_byte(&(str[i]));

@@ -2,13 +2,11 @@
 #include "system.h"
 #include "graphics.h"
 #include "gamesys.h"
-#include "background.h"
-#include "bullet.h"
+//#include "background.h"
+//#include "bullet.h"
 #include "player.h"
 
 int main() {
-    u8 i;
-
     SetTileTable(tiles);
     SetSpritesTileTable(spriteTiles);
     SetSpriteVisibility(1);
@@ -25,8 +23,7 @@ int main() {
     PrintVerticalRAM(2, 15, "HI");
     PrintVerticalRAM(29, 22, "@2023 RED BALLTOP");
 
-    InitBG();
-    InitPlayerBullets();
+    //InitBG();
     InitPlayers();
 
     while(1) {
@@ -34,11 +31,12 @@ int main() {
 
         ReadInputs();
 
-        BGUpdate();
+        //BGUpdate();
         
         PlayerUpdate(&players[0]);
-        i = PLAYER_BULLET_COUNT;
-        while(i--) PlayerBulletUpdate(&playerBullets[i]);
+        PlayerUpdate(&players[1]);
+        PlayerUpdateBullets(&players[0]);
+        PlayerUpdateBullets(&players[1]);
     }
 
     return 0;

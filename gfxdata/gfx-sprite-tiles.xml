@@ -4,12 +4,23 @@
     <output file="gfxdata/sprite-tiles.inc">
         <tiles var-name="spriteTiles" />
         <maps pointers-size="8">
+            <!-- Higatana Maps -->
+            <map var-name="mapHigatanaRedStill" left="0" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaRedA" left="1" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaRedB" left="2" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaRedC" left="3" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaYellowStill" left="4" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaYellowA" left="5" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaYellowB" left="6" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaYellowC" left="7" top="0" width="1" height="1" />
+            
             <!-- Higatana Bullet Maps -->
-            <map var-name="mapHigatanaBulletA" left="0" top="0" width="1" height="1" />
-            <map var-name="mapHigatanaBulletBTop" left="1" top="0" width="1" height="1" />
-            <map var-name="mapHigatanaBulletBBottom" left="2" top="0" width="1" height="1" />
-            <map var-name="mapHigatanaBulletCTop" left="3" top="0" width="1" height="1" />
-            <map var-name="mapHigatanaBulletCBottom" left="4" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaRedBulletA" left="0" top="1" width="1" height="1" />
+            <map var-name="mapHigatanaRedBulletB" left="1" top="1" width="1" height="1" />
+            <map var-name="mapHigatanaRedBulletC" left="2" top="1" width="1" height="1" />
+            <map var-name="mapHigatanaYellowBulletA" left="3" top="1" width="1" height="1" />
+            <map var-name="mapHigatanaYellowBulletB" left="4" top="1" width="1" height="1" />
+            <map var-name="mapHigatanaYellowBulletC" left="5" top="1" width="1" height="1" />
 
         </maps>
     </output>
