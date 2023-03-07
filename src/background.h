@@ -10,8 +10,6 @@
 #define BG_X_START 12
 #define BG_X_END 23
 
-void InitBG();
-void BGUpdate();
-void BGRotate(Color, u8);
+void BGDrawField();
 
 #endif

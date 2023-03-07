@@ -1,39 +1,52 @@
 #include "background.h"
 
-void DrawBG(Color);
-void DrawBGTransition();
-void ClearBGShort(u8);
-void DrawBGShort(Color, u8);
-void ClearBGLong(u8);
-void DrawBGLong(Color, u8);
-void DrawArrow(Color);
-void ClearArrow(Color);
+void BGDrawField() {
+    u8 x;
+    u8 y[] = {8, 18};
+    Fill(BG_X_START, 0, 1, 28, 64);
 
-u8 bgRotateTime = 0, bgDirLeft = 0, bgStarted = 0;
+    x = BG_X_START + 1;
+    y[0] = 10;
+    y[1] = 16;
+    while(x < 28) {
+        DrawMap(x, y[0], mapBGSlightRightA);
+        DrawMap(x + 2, y[0], mapBGSlightRightB);
+        DrawMap(x + 4, y[0], mapBGSlightRightC);
+        DrawMap(x + 6, y[0], mapBGSlightRightD);
+        DrawMap(x, y[1], mapBGSlightLeftA);
+        DrawMap(x + 2, y[1], mapBGSlightLeftB);
+        DrawMap(x + 4, y[1], mapBGSlightLeftC);
+        DrawMap(x + 6, y[1], mapBGSlightLeftD);
+        x += 8;
+        y[0] -= 2;
+        y[1] += 2;
+    }
 
-void InitBG() {
-    // currentColor = red;
-    // DrawMap(5, 13, mapBGSectorMap);
-}
+    x = BG_X_START + 1;
+    y[0] = 6;
+    y[1] = 20;
+    while(1) {
+        DrawMap(x, y[0], mapBGMidRightA);
+        DrawMap(x + 2, y[0], mapBGMidRightB);
+        DrawMap(x, y[1], mapBGMidLeftA);
+        DrawMap(x + 2, y[1], mapBGMidLeftB);
+        x += 4;
+        if(!y[0]) break;
+        
+        y[0] -= 2;
+        y[1] += 2;
+    }
 
-void BGUpdate() {
-    // if(bgRotateTime) {
-    //     if(bgRotateTime == 24) {
-    //         ClearArrow(currentColor);
-    //         currentColor = targetColor;
-    //         bgRotateTime = 0;
-    //         ClearBGShort(bgDirLeft);
-    //         DrawBG(currentColor);
-    //     } else {
-    //         DrawBGTransition();
-    //         bgRotateTime++;
-    //     }
-    // } else if(!bgStarted) DrawBG(currentColor);
-}
-
-void DrawBG(Color color) {
-    DrawArrow(color);
-
-    DrawBGLong(color, 0);
-    DrawBGLong(color, 1);
+    x = BG_X_START + 1;
+    y[0] = 2;
+    y[1] = 24;
+    while(1) {
+        DrawMap(x, y[0], mapBGHeavyRight);
+        DrawMap(x, y[1], mapBGHeavyLeft);
+        x += 2;
+        if(!y[0]) break;
+        
+        y[0] -= 2;
+        y[1] += 2;
+    }
 }

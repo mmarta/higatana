@@ -2,7 +2,7 @@
 #include "system.h"
 #include "graphics.h"
 #include "gamesys.h"
-//#include "background.h"
+#include "background.h"
 //#include "bullet.h"
 #include "player.h"
 
@@ -23,7 +23,7 @@ int main() {
     PrintVerticalRAM(2, 15, "HI");
     PrintVerticalRAM(29, 22, "@2023 RED BALLTOP");
 
-    //InitBG();
+    BGDrawField();
     InitPlayers();
 
     while(1) {
