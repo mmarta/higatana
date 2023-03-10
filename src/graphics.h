@@ -15,6 +15,8 @@
 
 #define PLAYER_BULLET_SPRITE_SIZE 1
 
+#define INVADER_SPRITE_SIZE 1
+
 #define HideSprite(spriteNum, w, h) MoveSprite(spriteNum, 0, SPRITE_Y_OFFSCREEN, w, h);
 
 // The created tilemaps
@@ -53,6 +55,9 @@ extern const char mapHigatanaRedBulletC[];
 extern const char mapHigatanaYellowBulletA[];
 extern const char mapHigatanaYellowBulletB[];
 extern const char mapHigatanaYellowBulletC[];
+
+extern const char mapInvaderANearA[];
+extern const char mapInvaderANearB[];
 
 // The bare tiles themselves
 

@@ -22,6 +22,9 @@
             <map var-name="mapHigatanaYellowBulletB" left="4" top="1" width="1" height="1" />
             <map var-name="mapHigatanaYellowBulletC" left="5" top="1" width="1" height="1" />
 
+            <!-- Invader Maps -->
+            <map var-name="mapInvaderANearA" left="0" top="2" width="1" height="1" />
+            <map var-name="mapInvaderANearB" left="1" top="2" width="1" height="1" />
         </maps>
     </output>
 </gfx-xform>

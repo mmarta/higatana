@@ -11,7 +11,8 @@
 #define BULLETS_PER_PLAYER 2
 
 typedef struct {
-    u8 index, spriteIndex, active, animTime, dieTime, fireButton;
+    u8 index, spriteIndex, active, animTime, dieTime, fireButton, scoreDelta;
+    u16 score;
     struct SpriteStruct *sprite;
     PlayerBullet bullets[BULLETS_PER_PLAYER];
 } Player;
@@ -19,6 +20,7 @@ typedef struct {
 extern Player players[];
 
 void InitPlayers();
+void PlayerStatusUpdate(Player *);
 void PlayerUpdate(Player *);
 void PlayerUpdateBullets(Player *);
 

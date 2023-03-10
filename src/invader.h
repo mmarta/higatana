@@ -12,12 +12,14 @@ typedef enum {
 } InvaderType;
 
 typedef struct {
-    u8 x, y, active, animTime, killTime;
+    u8 spriteIndex, active, animTime, killTime, score;
+    struct SpriteStruct *sprite;
     InvaderType type;
 } Invader;
 
 extern Invader invaders[];
 
+void InitAllInvaders();
 void InvaderInitNext();
 void InvaderUpdate(Invader *);
 
