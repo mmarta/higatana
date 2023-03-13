@@ -15,23 +15,41 @@ u8 SpriteCollision(
 void CheckCollisions() {
     u8 i, j;
 
-    i = PLAYER_BULLET_COUNT;
+    i = INVADER_COUNT;
     while(i--) {
-        j = INVADER_COUNT;
+        j = PLAYER_BULLET_COUNT;
         while(j--) {
             if(
-                InvaderIsCollidable(&invaders[j]) && playerBullets[i].active
+                InvaderIsCollidable(&invaders[i]) && playerBullets[j].active
                 && SpriteCollision(
-                    sprites[invaders[j].spriteIndex].x, sprites[invaders[j].spriteIndex].y,
+                    sprites[invaders[i].spriteIndex].x, sprites[invaders[i].spriteIndex].y,
                     INVADER_SPRITE_SIZE << 3, INVADER_SPRITE_SIZE << 3,
-                    sprites[playerBullets[i].spriteIndex].x, sprites[playerBullets[i].spriteIndex].y,
+                    sprites[playerBullets[j].spriteIndex].x, sprites[playerBullets[j].spriteIndex].y,
                     PLAYER_BULLET_SPRITE_SIZE << 3, PLAYER_BULLET_SPRITE_SIZE << 3
                 )
             ) {
-                PlayerBulletDeactivate(&playerBullets[i]);
-                InvaderKill(&invaders[j]);
-                players[playerCurrentIndex].scoreDelta += invaders[j].score;
+                PlayerBulletDeactivate(&playerBullets[j]);
+                InvaderKill(&invaders[i]);
+                players[playerCurrentIndex].scoreDelta += invaders[i].score;
+                break;
             }
+        }
+
+        if(
+            InvaderIsCollidable(&invaders[i])
+            && PlayerIsCollidable(&players[playerCurrentIndex])
+            && SpriteCollision(
+                sprites[invaders[i].spriteIndex].x, sprites[invaders[i].spriteIndex].y,
+                INVADER_SPRITE_SIZE << 3, INVADER_SPRITE_SIZE << 3,
+                sprites[playerSharedSpriteIndex].x,
+                sprites[playerSharedSpriteIndex].y,
+                PLAYER_SPRITE_SIZE << 3, PLAYER_SPRITE_SIZE << 3
+            )
+        ) {
+            PlayerKill(&players[playerCurrentIndex]);
+            InvaderKill(&invaders[i]);
+            players[playerCurrentIndex].scoreDelta += invaders[i].score;
+            break;
         }
     }
 }

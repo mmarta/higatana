@@ -13,6 +13,11 @@
             <map var-name="mapHigatanaYellowA" left="5" top="0" width="1" height="1" />
             <map var-name="mapHigatanaYellowB" left="6" top="0" width="1" height="1" />
             <map var-name="mapHigatanaYellowC" left="7" top="0" width="1" height="1" />
+
+            <map var-name="mapHigatanaKillA" left="8" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaKillB" left="9" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaKillC" left="10" top="0" width="1" height="1" />
+            <map var-name="mapHigatanaKillD" left="11" top="0" width="1" height="1" />
             
             <!-- Higatana Bullet Maps -->
             <map var-name="mapHigatanaRedBulletA" left="0" top="1" width="1" height="1" />

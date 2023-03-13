@@ -2,8 +2,8 @@
 
 Player players[PLAYER_COUNT];
 
-u8 playerCurrentIndex = 0;
-u8 playerSharedSpriteIndex, playerSharedSpriteAssigned = 0;
+u8 playerCurrentIndex = 0, playerSharedSpriteIndex;
+u8 playerSharedSpriteAssigned = 0;
 
 void PlayerFire(Player *);
 
@@ -12,6 +12,7 @@ void InitPlayers() {
 
     while(i--) {
         players[i].animTime = 0;
+        players[i].killTime = 0;
         players[i].index = i;
 
         if(!playerSharedSpriteAssigned) {
@@ -60,6 +61,40 @@ void PlayerStatusUpdate(Player *player) {
 void PlayerUpdate(Player *player) {
     if(!player->active) return;
     
+    // Kill?
+    if(player->killTime) {
+        switch(player->killTime) {
+            case 1:
+                MapSprite(playerSharedSpriteIndex, mapHigatanaKillA);
+                break;
+            case 7:
+                MapSprite(playerSharedSpriteIndex, mapHigatanaKillB);
+                break;
+            case 13:
+                MapSprite(playerSharedSpriteIndex, mapHigatanaKillC);
+                break;
+            case 19:
+                MapSprite(playerSharedSpriteIndex, mapHigatanaKillD);
+                break;
+            case 25:
+                HideSprite(playerSharedSpriteIndex, PLAYER_SPRITE_SIZE, PLAYER_SPRITE_SIZE);
+                break;
+            case 60:
+                player->animTime = 0;
+                player->killTime = 0;
+                MapSprite(playerSharedSpriteIndex, player->index ? mapHigatanaYellowA : mapHigatanaRedA);
+                MoveSprite(
+                    playerSharedSpriteIndex,
+                    PLAYER_X, PLAYER_START_Y,
+                    PLAYER_SPRITE_SIZE, PLAYER_SPRITE_SIZE
+                );
+
+                return;
+        }
+        player->killTime++;
+        return;
+    }
+
     // Input
     if(inputs[player->index] & BTN_LEFT) {
         if(sprites[playerSharedSpriteIndex].y < 208)
@@ -116,4 +151,12 @@ void PlayerFire(Player *player) {
             return;
         }
     }
+}
+
+void PlayerKill(Player *player) {
+    player->killTime = 1;
+}
+
+u8 PlayerIsCollidable(Player *player) {
+    return player->active && !player->killTime;
 }

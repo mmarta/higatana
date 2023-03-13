@@ -49,6 +49,11 @@ extern const char mapHigatanaYellowA[];
 extern const char mapHigatanaYellowB[];
 extern const char mapHigatanaYellowC[];
 
+extern const char mapHigatanaKillA[];
+extern const char mapHigatanaKillB[];
+extern const char mapHigatanaKillC[];
+extern const char mapHigatanaKillD[];
+
 extern const char mapHigatanaRedBulletA[];
 extern const char mapHigatanaRedBulletB[];
 extern const char mapHigatanaRedBulletC[];
