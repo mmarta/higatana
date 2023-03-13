@@ -58,6 +58,15 @@ extern const char mapHigatanaYellowBulletC[];
 
 extern const char mapInvaderANearA[];
 extern const char mapInvaderANearB[];
+extern const char mapInvaderAMidA[];
+extern const char mapInvaderAMidB[];
+extern const char mapInvaderAFarA[];
+extern const char mapInvaderAFarB[];
+
+extern const char mapInvaderKillA[];
+extern const char mapInvaderKillB[];
+extern const char mapInvaderKillC[];
+extern const char mapInvaderKillD[];
 
 // The bare tiles themselves
 

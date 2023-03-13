@@ -25,6 +25,15 @@
             <!-- Invader Maps -->
             <map var-name="mapInvaderANearA" left="0" top="2" width="1" height="1" />
             <map var-name="mapInvaderANearB" left="1" top="2" width="1" height="1" />
+            <map var-name="mapInvaderAMidA" left="2" top="2" width="1" height="1" />
+            <map var-name="mapInvaderAMidB" left="3" top="2" width="1" height="1" />
+            <map var-name="mapInvaderAFarA" left="4" top="2" width="1" height="1" />
+            <map var-name="mapInvaderAFarB" left="5" top="2" width="1" height="1" />
+
+            <map var-name="mapInvaderKillA" left="6" top="2" width="1" height="1" />
+            <map var-name="mapInvaderKillB" left="7" top="2" width="1" height="1" />
+            <map var-name="mapInvaderKillC" left="8" top="2" width="1" height="1" />
+            <map var-name="mapInvaderKillD" left="9" top="2" width="1" height="1" />
         </maps>
     </output>
 </gfx-xform>

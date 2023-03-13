@@ -5,13 +5,24 @@
 #include "graphics.h"
 #include "gamesys.h"
 
+#define PLAYER_BULLET_COUNT 2
+
+#define INVADER_BULLET_COUNT 3
+
 typedef struct {
     u8 active, distance, spriteIndex, playerIndex;
-    struct SpriteStruct *sprite;
 } PlayerBullet;
 
-void InitPlayerBullet(PlayerBullet *, u8);
-void PlayerBulletFire(PlayerBullet *, u8, u8);
+extern PlayerBullet playerBullets[];
+
+typedef struct {
+    u8 active, spriteIndex;
+} InvaderBullet;
+
+extern InvaderBullet invaderBullets[];
+
+void InitPlayerBullets();
+void PlayerBulletFire(PlayerBullet *, u8, u8, u8);
 void PlayerBulletUpdate(PlayerBullet *);
 void PlayerBulletDeactivate(PlayerBullet *);
 

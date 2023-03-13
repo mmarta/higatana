@@ -2,21 +2,28 @@
 
 Player players[PLAYER_COUNT];
 
+u8 playerCurrentIndex = 0;
+u8 playerSharedSpriteIndex, playerSharedSpriteAssigned = 0;
+
 void PlayerFire(Player *);
 
 void InitPlayers() {
-    u8 i = PLAYER_COUNT, j;
+    u8 i = PLAYER_COUNT - 1;
 
     while(i--) {
         players[i].animTime = 0;
         players[i].index = i;
-        AssignNextSprite(&players[i].spriteIndex, PLAYER_SPRITE_SIZE);
-        players[i].sprite = &sprites[players[i].spriteIndex];
+
+        if(!playerSharedSpriteAssigned) {
+            AssignNextSprite(&playerSharedSpriteIndex, PLAYER_SPRITE_SIZE);
+            playerSharedSpriteAssigned = 1;
+        }
+        
         players[i].score = 0;
         players[i].scoreDelta = 0;
-        MapSprite(players[i].spriteIndex, i ? mapHigatanaYellowA : mapHigatanaRedA);
+        MapSprite(playerSharedSpriteIndex, i ? mapHigatanaYellowA : mapHigatanaRedA);
         MoveSprite(
-            players[i].spriteIndex,
+            playerSharedSpriteIndex,
             PLAYER_X, PLAYER_START_Y,
             PLAYER_SPRITE_SIZE, PLAYER_SPRITE_SIZE
         );
@@ -28,9 +35,6 @@ void InitPlayers() {
             PrintVerticalRAM(2, 25, "1UP");
             PrintU16Vertical(3, 21, players[i].score, 50000, 1);
         }
-
-        j = BULLETS_PER_PLAYER;
-        while(j--) InitPlayerBullet(&players[i].bullets[j], i);
         
         players[i].active = 1;
     }
@@ -58,20 +62,20 @@ void PlayerUpdate(Player *player) {
     
     // Input
     if(inputs[player->index] & BTN_LEFT) {
-        if(player->sprite->y < 208)
+        if(sprites[playerSharedSpriteIndex].y < 208)
             MoveSprite(
-                player->spriteIndex,
-                player->sprite->x,
-                player->sprite->y + 2,
+                playerSharedSpriteIndex,
+                sprites[playerSharedSpriteIndex].x,
+                sprites[playerSharedSpriteIndex].y + 2,
                 PLAYER_SPRITE_SIZE,
                 PLAYER_SPRITE_SIZE
             );
     } else if(inputs[player->index] & BTN_RIGHT) {
-        if(player->sprite->y > 8)
+        if(sprites[playerSharedSpriteIndex].y > 8)
             MoveSprite(
-                player->spriteIndex,
-                player->sprite->x,
-                player->sprite->y - 2,
+                playerSharedSpriteIndex,
+                sprites[playerSharedSpriteIndex].x,
+                sprites[playerSharedSpriteIndex].y - 2,
                 PLAYER_SPRITE_SIZE,
                 PLAYER_SPRITE_SIZE
             );
@@ -86,14 +90,14 @@ void PlayerUpdate(Player *player) {
 
     switch(player->animTime) {
         case 0:
-            MapSprite(player->spriteIndex, player->index ? mapHigatanaYellowA : mapHigatanaRedA);
+            MapSprite(playerSharedSpriteIndex, player->index ? mapHigatanaYellowA : mapHigatanaRedA);
             break;
         case 3:
         case 9:
-            MapSprite(player->spriteIndex, player->index ? mapHigatanaYellowB : mapHigatanaRedB);
+            MapSprite(playerSharedSpriteIndex, player->index ? mapHigatanaYellowB : mapHigatanaRedB);
             break;
         case 6:
-            MapSprite(player->spriteIndex, player->index ? mapHigatanaYellowC : mapHigatanaRedC);
+            MapSprite(playerSharedSpriteIndex, player->index ? mapHigatanaYellowC : mapHigatanaRedC);
             break;
     }
     
@@ -101,16 +105,14 @@ void PlayerUpdate(Player *player) {
     if(player->animTime >= 12) player->animTime = 0;
 }
 
-void PlayerUpdateBullets(Player *player) {
-    u8 i = BULLETS_PER_PLAYER;
-    while(i--) PlayerBulletUpdate(&player->bullets[i]);
-}
-
 void PlayerFire(Player *player) {
-    u8 i = BULLETS_PER_PLAYER;
+    u8 i = PLAYER_BULLET_COUNT;
     while(i--) {
-        if(!player->bullets[i].active) {
-            PlayerBulletFire(&player->bullets[i], player->sprite->x, player->sprite->y);
+        if(!playerBullets[i].active) {
+            PlayerBulletFire(
+                &playerBullets[i], sprites[playerSharedSpriteIndex].x,
+                sprites[playerSharedSpriteIndex].y, player->index
+            );
             return;
         }
     }

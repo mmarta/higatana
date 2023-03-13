@@ -1,17 +1,20 @@
 #include "bullet.h"
 
+PlayerBullet playerBullets[PLAYER_BULLET_COUNT];
+
 void PlayerBulletHide(PlayerBullet *);
 
-void InitPlayerBullet(PlayerBullet *bullet, u8 index) {
-    AssignNextSprite(&bullet->spriteIndex, PLAYER_BULLET_SPRITE_SIZE);
-    bullet->sprite = &sprites[bullet->spriteIndex];
-    HideSprite(bullet->spriteIndex, PLAYER_BULLET_SPRITE_SIZE, PLAYER_BULLET_SPRITE_SIZE);
-    bullet->playerIndex = index;
-    bullet->active = 0;
+void InitPlayerBullets() {
+    u8 i = PLAYER_BULLET_COUNT;
+    while(i--) {
+        AssignNextSprite(&playerBullets[i].spriteIndex, PLAYER_BULLET_SPRITE_SIZE);
+        playerBullets[i].active = 0;
+    }
 }
 
-void PlayerBulletFire(PlayerBullet *bullet, u8 x, u8 y) {
-    MapSprite(bullet->spriteIndex, bullet->playerIndex
+void PlayerBulletFire(PlayerBullet *bullet, u8 x, u8 y, u8 index) {
+    bullet->playerIndex = index;
+    MapSprite(bullet->spriteIndex, index
         ? mapHigatanaYellowBulletA
         : mapHigatanaRedBulletA
     );
@@ -36,25 +39,25 @@ void PlayerBulletUpdate(PlayerBullet *bullet) {
             speed = 2;
     }
 
-    if(bullet->sprite->x < 180 && bullet->distance == 0) {
+    if(sprites[bullet->spriteIndex].x < 180 && bullet->distance == 0) {
         bullet->distance = 1;
         MapSprite(bullet->spriteIndex, bullet->playerIndex
             ? mapHigatanaYellowBulletB
             : mapHigatanaRedBulletB
         );
-    } else if(bullet->sprite->x < 130 && bullet->distance == 1) {
+    } else if(sprites[bullet->spriteIndex].x < 130 && bullet->distance == 1) {
         bullet->distance = 2;
         MapSprite(bullet->spriteIndex, bullet->playerIndex
             ? mapHigatanaYellowBulletC
             : mapHigatanaRedBulletC
         );
-    } else if(bullet->sprite->x < 100) {
+    } else if(sprites[bullet->spriteIndex].x < 100) {
         PlayerBulletDeactivate(bullet);
         return;
     }
     
     MoveSprite(
-        bullet->spriteIndex, bullet->sprite->x - speed, bullet->sprite->y,
+        bullet->spriteIndex, sprites[bullet->spriteIndex].x - speed, sprites[bullet->spriteIndex].y,
         PLAYER_BULLET_SPRITE_SIZE, PLAYER_BULLET_SPRITE_SIZE
     );
 }

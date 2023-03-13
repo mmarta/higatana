@@ -8,16 +8,16 @@
 #include "bullet.h"
 
 #define PLAYER_COUNT 2
-#define BULLETS_PER_PLAYER 2
 
 typedef struct {
-    u8 index, spriteIndex, active, animTime, dieTime, fireButton, scoreDelta;
+    u8 index, active, animTime, dieTime, fireButton, scoreDelta;
     u16 score;
-    struct SpriteStruct *sprite;
-    PlayerBullet bullets[BULLETS_PER_PLAYER];
+    // Players SHARE a sprite index - see c file
+    // Players also share the same bullets.
 } Player;
 
 extern Player players[];
+extern u8 playerCurrentIndex;
 
 void InitPlayers();
 void PlayerStatusUpdate(Player *);

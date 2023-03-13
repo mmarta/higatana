@@ -3,8 +3,10 @@
 #include "graphics.h"
 #include "gamesys.h"
 #include "background.h"
+#include "bullet.h"
 #include "player.h"
 #include "invader.h"
+#include "collision.h"
 
 int main() {
     u8 i = 0, j;
@@ -21,11 +23,14 @@ int main() {
 
     BGDrawField();
     InitPlayers();
+    InitPlayerBullets();
 
     InitAllInvaders();
 
     while(1) {
         WaitVsync(1);
+
+        CheckCollisions();
 
         ReadInputs();
         
@@ -38,10 +43,12 @@ int main() {
         PlayerStatusUpdate(&players[0]);
         PlayerStatusUpdate(&players[1]);
 
-        PlayerUpdate(&players[0]);
-        PlayerUpdate(&players[1]);
-        PlayerUpdateBullets(&players[0]);
-        PlayerUpdateBullets(&players[1]);
+        // Sprite updates
+
+        PlayerUpdate(&players[playerCurrentIndex]);
+
+        j = PLAYER_BULLET_COUNT;
+        while(j--) PlayerBulletUpdate(&playerBullets[j]);
 
         j = INVADER_COUNT;
         while(j--) InvaderUpdate(&invaders[j]);
